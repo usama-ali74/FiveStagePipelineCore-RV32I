@@ -23,7 +23,7 @@ class EX_MEM extends Modele {
         val alu_output_out = Output(UInt(32.W))
 
     })
-
+        //RegInit
         val load_reg = RegInit(UInt(1.W))
         val store_reg = RegInit(UInt(1.W))
         val ID_EX_REGWR_reg = RegInit(UInt(1.W))
