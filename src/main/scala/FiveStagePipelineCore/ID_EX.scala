@@ -37,7 +37,7 @@ class ID_EX extends Module{
         val RegWr_out = Output(UInt(1.W))
 		val jal_out = Output(UInt(1.W))
 		val  jalr_out = Output(UInt(1.W))
-	)}
+	})
 		//RegInit
 		val IF_ID_pc_reg = RegInit(SInt(32.W))
         val rs1_sel_reg = RegInit(UInt(5.W))
@@ -58,47 +58,46 @@ class ID_EX extends Module{
 		IF_ID_pc_reg := io.IF_ID_pc_in
 		io.IF_ID_pc_out := IF_ID_pc_reg
 		
-		rs1_sel_reg := rs1_in
-		rs1_out := rs1_sel_reg
+		rs1_sel_reg := io.rs1_in
+		io.rs1_out := rs1_sel_reg
 
-		rs2_sel_reg := rs2_in
-		rs2_out := rs2_sel_reg
+		rs2_sel_reg := io.rs2_in
+		io.rs2_out := rs2_sel_reg
 
-		rd_sel_reg := rd_sel_in
-		rd_sel_out := rd_sel_reg
+		rd_sel_reg := io.rd_sel_in
+		io.rd_sel_out := rd_sel_reg
 
-		aluContrl_reg := aluContrl_in
-		aluContrl_out := aluContrl_reg
+		aluContrl_reg := io.aluContrl_in
+		io.aluContrl_out := aluContrl_reg
 
-		rs1_reg := rs2_in
-		rs1_out := rs1_reg
+		rs1_reg := io.rs2_in
+		io.rs1_out := rs1_reg
 
-		rs2_reg := rs2_in
-		rs2_out := rs2_reg
+		rs2_reg := io.rs2_in
+		io.rs2_out := rs2_reg
 
-		Bus_A_reg := Bus_A_in
-		Bus_A_out := Bus_A_reg
+		Bus_A_reg := io.Bus_A_in
+		io.Bus_A_out := Bus_A_reg
 
-		Bus_B_reg := Bus_B_in
-		Bus_A_out := Bus_A_reg
+		Bus_B_reg := io.Bus_B_in
+		io.Bus_A_out := Bus_A_reg
 
-		store_reg := store_in
-		store_out := store_reg
+		store_reg := io.store_in
+		io.store_out := store_reg
 
-		load_reg := load_in
-		load_out := load_reg
+		load_reg := io.load_in
+		io.load_out := load_reg
 
-		branch_reg := branch_in
-		branch_out := branch_reg
+		branch_reg := io.branch_in
+		io.branch_out := branch_reg
 
-		RegWr_reg := RegWr_in
-		RegWr_out := RegWr_reg
+		RegWr_reg := io.RegWr_in
+		io.RegWr_out := RegWr_reg
 
-		jal_reg := jal_in
-		jal_out := jal_reg
+		jal_reg := io.jal_in
+		io.jal_out := jal_reg
 
-		jalr_reg := jal_in
-		jalr_out := jalr_reg
+		jalr_reg := io.jal_in
+		io.jalr_out := jalr_reg
 
-	
 }
