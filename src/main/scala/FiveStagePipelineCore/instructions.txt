@@ -1,2 +1,45 @@
 0x008201b3
 0x00a10093
+
+CREATE TABLE PROJECT047(
+PID varchar2(4) CONSTRAINT PROJECT047_PID_PK PRIMARY KEY,
+Title varchar2(50),
+Client varchar2(50),
+Duration Number(20),
+Status varchar(20)
+);
+
+CREATE TABLE GRADE047(
+DESIGNATION varchar2(100) CONSTRAINT Grade047_Designation_Pk Primary Key,
+Grade Varchar2(20),
+Totalposts Number(20), 
+Postavailable Number(20),
+CONSTRAINT GRADE047_POSTAVAILABLE_CK CHECK (POSTAVAILABLE <= TOTALPOSTS)
+);
+CREATE TABLE EMPLOYEE047(
+EMPNO NUMBER(4) PRIMARY KEY,
+Ename varchar2(50) not Null,
+Designation varchar2(50) Not null,
+Qualification varchar2(50) Not null,
+JoinDate Date Default SYSdate
+);
+
+ALTER TABLE employee047
+ADD gender varchar2(10);
+
+CREATE TABLE EMP_PROJECT047(
+Empno Number(4) Not Null,
+Pid Varchar2(4) NOT NULL,
+Performance Varchar2(20),
+CONSTRAINT Emp_project047_Empno_Fk Foreign Key (Empno)  References Employee047(Empno),
+CONSTRAINT Emp_project047_Pid_Fk Foreign Key (Pid)  References Project047(Pid),
+CONSTRAINT Emp_project047_Performance_Ck Check (Performance In ('Excellent','Good','Fair','Bad','Poor')));
+
+
+Insert into EMPLOYEE047 (EMPNO,ENAME,Designation,Qualification,JoinDate) values (7369,'SMITH','CLERK','UNDERGRATE',to_date('17-DEC-80','DD-MON-RR'));
+Insert into EMPLOYEE047 (EMPNO,ENAME,Designation,Qualification,JoinDate) values (7370,'SCOTT','SALESMAN','ALEVELS',to_date('27-MAY-85','DD-MON-RR'));
+Insert into PROJECT047 (PID,TITLE,CLIENT,DURATION,STATUS) values (09,'BELKO','TODD',10,'ACTIVE');
+Insert into PROJECT047 (PID,TITLE,CLIENT,DURATION,STATUS) values (10,'VALHALA','SCOTT',7,'NOT ACTIVE');
+Insert into EMP_PROJECT047 (EMPNO,PID,PERFORMANCE) values (7369,09,'Fair');
+Insert into EMP_PROJECT047 (EMPNO,PID,PERFORMANCE) values (7370,10,'Good');
+
